@@ -56,6 +56,12 @@ public class VectorUtility {
     
     public double norm(double[] v1) {
         // TODO: Implement me properly!
-        return 0.0;
+        double result;
+        double sum = 0;
+        for (int i = 0; i < v1.length; i++) {
+            sum = sum + Math.pow(v1[i], 2);
+        }
+        result = Math.sqrt(sum);
+        return result;
     }
 }
