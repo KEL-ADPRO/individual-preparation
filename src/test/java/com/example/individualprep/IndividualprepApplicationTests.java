@@ -21,15 +21,19 @@ class IndividualprepApplicationTests {
 
 	@Test
 	void testArithmetic() {
-		double o1 = 5.0;
+		double o1 = 6.0;
 		double o2 = 2.0;
 		int n = 2;
 		double addResult = arithmeticUtility.add(o1,o2);
-		double substractResult = arithmeticUtility.subtract(o1,o2);
+		double subtractResult = arithmeticUtility.subtract(o1,o2);
+		double multiplyResult = arithmeticUtility.multiply(o1,o2);
+		double divideResult = arithmeticUtility.divide(o1, o2);
 		double exponentResult = arithmeticUtility.exponent(o1, n);
-		assertEquals(7.0, addResult);
-		assertEquals(3.0, substractResult);
-		assertEquals(25.0, exponentResult);
+		assertEquals(8.0, addResult);
+		assertEquals(4.0, subtractResult);
+		assertEquals(12.0, multiplyResult);
+		assertEquals(3.0, divideResult);
+		assertEquals(36.0, exponentResult);
 	}
 
 	@Test
@@ -38,3 +42,4 @@ class IndividualprepApplicationTests {
 	}
 
 }
+
