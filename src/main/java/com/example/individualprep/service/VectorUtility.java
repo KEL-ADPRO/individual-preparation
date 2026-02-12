@@ -58,8 +58,8 @@ public class VectorUtility {
         // TODO: Implement me properly!
         double result;
         double sum = 0;
-        for (int i = 0; i < v1.length; i++) {
-            sum = sum + Math.pow(v1[i], 2);
+        for (double v : v1) {
+            sum = sum + Math.pow(v, 2);
         }
         result = Math.sqrt(sum);
         return result;
