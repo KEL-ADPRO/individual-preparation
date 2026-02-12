@@ -20,11 +20,16 @@ class IndividualprepApplicationTests {
 	}
 
 	@Test
-	void testArithmeticAdd() {
-		double o1 = 10.0;
-		double o2 = 15.0;
-		double savedResult = arithmeticUtility.add(o1,o2);
-		assertEquals(25.0, savedResult);
+	void testArithmetic() {
+		double o1 = 5.0;
+		double o2 = 2.0;
+		int n = 2;
+		double addResult = arithmeticUtility.add(o1,o2);
+		double substractResult = arithmeticUtility.subtract(o1,o2);
+		double exponentResult = arithmeticUtility.exponent(o1, n);
+		assertEquals(7.0, addResult);
+		assertEquals(3.0, substractResult);
+		assertEquals(25.0, exponentResult);
 	}
 
 }
