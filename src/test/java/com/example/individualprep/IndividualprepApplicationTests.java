@@ -32,4 +32,9 @@ class IndividualprepApplicationTests {
 		assertEquals(25.0, exponentResult);
 	}
 
+	@Test
+	void testVector() {
+
+	}
+
 }
