@@ -13,10 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 class IndividualprepApplicationTests {
-
 	@InjectMocks
 	ArithmeticUtility arithmeticUtility;
-
 	@InjectMocks
 	VectorUtility vectorUtility;
 
