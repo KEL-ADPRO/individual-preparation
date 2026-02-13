@@ -1,0 +1,35 @@
+name: Continuous Integration (CI)
+
+on:
+  push:
+    branches: ["main", "samuel-ci"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Execute permission for Gradle
+        run: chmod +x ./gradlew
+
+      - name: Run build, tests, and linter
+        run: ./gradlew clean check jacocoTestReport
+
+      - name: Run SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonar -Dsonar.qualitygate.wait=true
