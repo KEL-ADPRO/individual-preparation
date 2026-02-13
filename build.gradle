@@ -58,7 +58,7 @@ sonar {
 		property "sonar.host.url", "https://sonarcloud.io"
 		property "sonar.projectKey", "KEL-ADPRO_individual-preparation"
 		property "sonar.organization", "kel-adpro"
-		property "sonar.coverage.jacoco.cmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+		property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
 	}
 }
 
