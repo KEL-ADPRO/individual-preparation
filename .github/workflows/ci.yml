@@ -2,20 +2,38 @@ name: Continuous Integration (CI)
 
 on:
   push:
+    branches:
+      - "**"
   pull_request:
+    branches:
+      - main
 
 jobs:
   test:
     name: Run tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check out the Git repo
         uses: actions/checkout@v4
+
       - name: Set up Java toolchain
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "21"
           cache: "gradle"
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Run Linter (Checkstyle) and Tests
+        run: ./gradlew check
+
+      - name: Analyze with SonarCloud
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonar --info
+
       - name: Run unit tests
         run: ./gradlew test
