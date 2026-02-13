@@ -56,10 +56,9 @@ checkstyle {
 sonar {
 	properties {
 		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.organization", "kel-adpro"
 		property "sonar.projectKey", "KEL-ADPRO_individual-preparation"
-		property "sonar.coverage.jacoco.xmlReportPaths",
-				"${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
+		property "sonar.organization", "kel-adpro"
+		property "sonar.coverage.jacoco.cmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
 	}
 }
 
