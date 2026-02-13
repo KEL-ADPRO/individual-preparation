@@ -22,6 +22,7 @@ class IndividualprepApplicationTests {
 
 	double o1;
 	double o2;
+	int zero;
 	int n;
 
 	double[] v1;
@@ -33,6 +34,7 @@ class IndividualprepApplicationTests {
 	void setUp() {
 		o1 = 6.0;
 		o2 = 2.0;
+		zero = 0;
 		n = 2;
 
 		v1 = new double[]{1.0, 2.0, 3.0};
@@ -41,6 +43,14 @@ class IndividualprepApplicationTests {
 		x = 3;
 	}
 
+	@Test
+	void testArithmeticException() {
+		IllegalArgumentException divException = assertThrows(IllegalArgumentException.class, () -> {
+			arithmeticUtility.divide(o1, zero);
+		});
+
+		assertEquals("Cannot divide by zero", divException.getMessage());
+	}
 	@Test
 	void testAddArithmetic() {
 		double addResult = arithmeticUtility.add(o1,o2);
